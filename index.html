@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking Patterns 1-10 • အင်္ဂလိပ်စကားပြောပုံစံများ</title>
+    <!-- Google Fonts & modern reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00b4d8;
+            --primary-dark: #0096c7;
+            --secondary: #0077b6;
+            --accent: #f72585;
+            --success: #06d6a0;
+            --warning: #ffd166;
+            --danger: #ef476f;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray-100: #e9ecef;
+            --gray-200: #dee2e6;
+            --gray-300: #ced4da;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #03045e 0%, #0077b6 100%);
+            min-height: 100vh;
+            width: 100%;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+            color: var(--dark);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 25px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            min-height: 90vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #00b4d8, #0077b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            color: var(--primary-dark);
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 20px 0 15px;
+            color: var(--primary-dark);
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            border-bottom: 2px dashed var(--gray-300);
+            padding-bottom: 8px;
+        }
+
+        /* Main Menu Button */
+        .btn-speaking-main {
+            background: linear-gradient(145deg, #00b4d8, #0077b6);
+            font-size: 1.3rem;
+            padding: 16px 30px;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 350px;
+            display: block;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn-speaking-main:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(145deg, #0077b6, #03045e);
+        }
+
+        /* Pattern Grid Buttons */
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin: 25px 0;
+            width: 100%;
+        }
+        .btn-pattern {
+            background: linear-gradient(145deg, #00b4d8, #0096c7);
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 16px 8px;
+            border: none;
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            width: 100%;
+            cursor: pointer;
+        }
+        .btn-pattern:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(145deg, #0096c7, #0077b6);
+        }
+
+        /* Back button */
+        .btn-back {
+            background: linear-gradient(145deg, #ff4444, #aa0000);
+            color: white;
+            padding: 14px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: inline-block;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Content Area */
+        #contentArea {
+            min-height: 350px;
+            margin-bottom: 25px;
+            background: white;
+            padding: 25px 20px;
+            border-radius: 24px;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.02), 0 10px 20px -10px rgba(0,119,182,0.15);
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        /* Example Box */
+        .example-box {
+            background: linear-gradient(145deg, #f2f7ff, #e9f2ff);
+            border-left: 6px solid var(--accent);
+            padding: 18px;
+            border-radius: 20px;
+            margin: 25px 0 10px;
+            box-shadow: 0 8px 12px -8px rgba(247,37,133,0.15);
+            width: 100%;
+        }
+        .example-box strong:first-child { 
+            color: var(--accent); 
+            font-size: 1.1rem; 
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Tense Card (for pattern display) */
+        .tense-card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,180,216,0.3);
+            transition: var(--transition);
+            width: 100%;
+            margin: 15px 0;
+        }
+        .tense-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -8px rgba(0,119,182,0.25);
+            border-color: var(--primary);
+        }
+
+        /* Vocab List (for examples) */
+        .vocab-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+        .vocab-list li {
+            background: #f8f9fa;
+            margin: 8px 0;
+            padding: 12px 16px;
+            border-radius: 40px;
+            border-left: 6px solid var(--success);
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            width: 100%;
+        }
+        .vocab-list li strong {
+            color: var(--primary-dark);
+            font-size: 1rem;
+        }
+        .vocab-list li em {
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 600;
+            margin-left: 8px;
+            display: inline-block;
+        }
+
+        /* Navigation Area */
+        #navigationArea {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed var(--gray-300);
+            text-align: center;
+            width: 100%;
+        }
+        .nav-buttons { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 12px; 
+            width: 100%;
+        }
+        .back-controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        /* Welcome Box */
+        .welcome-box {
+            text-align: center; 
+            padding: 40px 20px; 
+            background: linear-gradient(145deg, #f8f9fa, #ffffff); 
+            border-radius: 24px; 
+            margin: 20px 0;
+            border: 1px solid rgba(0,180,216,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .pattern-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pattern-grid {
+                grid-template-columns: 1fr;
+            }
+            .back-controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗣️ Speaking Patterns 1-10</h1>
+        <h3 style="text-align: center; color: #0077b6; margin-bottom: 20px;">အင်္ဂလိပ်စကားပြောပုံစံများ</h3>
+
+        <!-- Main Menu Button -->
+        <div style="text-align: center;">
+            <button class="btn-speaking-main" onclick="showSpeakingPatternButtons()">🎯 View All Speaking Patterns</button>
+        </div>
+
+        <!-- Content Area -->
+        <div id="contentArea"></div>
+        
+        <!-- Navigation Area -->
+        <div id="navigationArea"></div>
+    </div>
+
+    <script>
+        // ---------- Speaking Patterns Data ----------
+        const speakingPatternsData = {
+            pattern1: {
+                title: "🎯 Speaking Pattern - 1",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Sub + be + able + to + infinitive</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: တစ်စုံတစ်ခုကို လုပ်နိုင်စွမ်းရှိသည်</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>I am able to swim.</strong> <em>— ကျွန်တော် ရေကူးနိုင်တယ်။</em></li>
+                            <li><strong>She is able to speak English.</strong> <em>— သူမ အင်္ဂလိပ်စကားပြောနိုင်တယ်။</em></li>
+                            <li><strong>They are able to finish the work.</strong> <em>— သူတို့ အလုပ်ပြီးအောင်လုပ်နိုင်တယ်။</em></li>
+                            <li><strong>He was able to solve the problem.</strong> <em>— သူ ပြဿနာကိုဖြေရှင်းနိုင်ခဲ့တယ်။</em></li>
+                            <li><strong>We will be able to help you.</strong> <em>— ငါတို့ မင်းကိုကူညီနိုင်လိမ့်မယ်။</em></li>
+                        </ul>
+                    </div>
+                    <div class="example-box">
+                        <strong>💡 Note / မှတ်ချက်</strong>
+                        <p style="margin-top: 10px;">"Can" နဲ့ အဓိပ္ပာယ်ဆင်တူပြီး ပိုပြီးတရားဝင် (formal) ဆန်တယ်။</p>
+                    </div>
+                `
+            },
+            pattern2: {
+                title: "🎯 Speaking Pattern - 2",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Sub + be + about to + infinitive</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: တစ်ခုခုကို လုပ်တော့မယ် / လုပ်ခါနီးဖြစ်နေပြီ</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>I am about to go.</strong> <em>— ကျွန်တော် သွားတော့မလို့။</em></li>
+                            <li><strong>The train is about to leave.</strong> <em>— ရထား ထွက်တော့မယ်။</em></li>
+                            <li><strong>They are about to start.</strong> <em>— သူတို့ စတော့မယ်။</em></li>
+                            <li><strong>I am about to speak.</strong> <em>— ကျွန်တော် စကားပြောတော့မလို့။</em></li>
+                            <li><strong>You are about to read.</strong> <em>— မင်း စာဖတ်တော့မလို့လား။</em></li>
+                            <li><strong>He is about to drive.</strong> <em>— သူ ကားမောင်းတော့မယ်။</em></li>
+                            <li><strong>She is about to cook.</strong> <em>— သူမ ဟင်းချက်တော့မယ်။</em></li>
+                            <li><strong>It is about to move.</strong> <em>— ၎င်းက ရွေ့တော့မယ်။</em></li>
+                            <li><strong>We are about to help.</strong> <em>— ကျွန်တော်တို့ ကူညီတော့မယ်။</em></li>
+                            <li><strong>They are about to come.</strong> <em>— သူတို့ လာတော့မယ်။</em></li>
+                            <li><strong>I am about to eat.</strong> <em>— ကျွန်တော် စားတော့မလို့။</em></li>
+                            <li><strong>You are about to pay.</strong> <em>— မင်း ပိုက်ဆံပေးတော့မယ်။</em></li>
+                            <li><strong>He is about to leave.</strong> <em>— သူ ထွက်ခွာတော့မယ်။</em></li>
+                            <li><strong>She is about to sing.</strong> <em>— သူမ သီချင်းဆိုတော့မယ်။</em></li>
+                            <li><strong>It is about to cry.</strong> <em>— ၎င်း (ကလေးငယ်/တိရစ္ဆာန်) ငိုတော့မယ်။</em></li>
+                            <li><strong>We are about to play.</strong> <em>— ကျွန်တော်တို့ ကစားတော့မယ်။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern3: {
+                title: "🎯 Speaking Pattern - 3",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Sub + be (not) adj + about it</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: (အဲ့ဒီအပေါ်) စိတ်ခံစားချက်ရှိသည်</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>1. He is angry about the delay.</strong> <em>— သူ နှောင့်နှေးမှုအပေါ် စိတ်ဆိုးနေတယ်။</em></li>
+                            <li><strong>2. I am angry about his behavior.</strong> <em>— ငါ သူ့ရဲ့ အမူအကျင့်အပေါ် စိတ်ဆိုးနေတယ်။</em></li>
+                            <li><strong>3. She is happy about her new job.</strong> <em>— သူမ အလုပ်အသစ်အတွက် ပျော်နေတယ်။</em></li>
+                            <li><strong>4. We are happy about the progress.</strong> <em>— ကျွန်တော်တို့ တိုးတက်မှုအခြေအနေအပေါ် ဝမ်းသာပါတယ်။</em></li>
+                            <li><strong>5. They are excited about the match.</strong> <em>— သူတို့ ပွဲစဉ်အတွက် စိတ်လှုပ်ရှားနေကြတယ်။</em></li>
+                            <li><strong>6. I am excited about the sea voyage.</strong> <em>— ငါ ပင်လယ်ခရီးစဉ်အတွက် စိတ်လှုပ်ရှားနေတယ်။</em></li>
+                            <li><strong>7. I feel foolish about my mistake.</strong> <em>— ငါ့ရဲ့ အမှားအတွက် ငါ့ကိုယ်ငါ နုံအတယ်လို့ ခံစားရတယ်။</em></li>
+                            <li><strong>8. The chief is concerned about the fuel level.</strong> <em>— အကြီးအကဲက လောင်စာဆီပမာဏအတွက် စိုးရိမ်နေတယ်။</em></li>
+                            <li><strong>9. We are concerned about the weather.</strong> <em>— ကျွန်တော်တို့ ရာသီဥတုအတွက် စိုးရိမ်နေကြတယ်။</em></li>
+                            <li><strong>10. The captain is strict about the schedule.</strong> <em>— ကပ္ပတိန်က အချိန်ဇယားနဲ့ပတ်သက်ရင် တင်းကျပ်တယ်။</em></li>
+                            <li><strong>11. They are strict about the engine room rules.</strong> <em>— သူတို့က စက်ခန်းစည်းကမ်းတွေနဲ့ ပတ်သက်ရင် တင်းကျပ်တယ်။</em></li>
+                            <li><strong>12. I am confident about it.</strong> <em>— ငါ အဲ့ဒါနဲ့ ပတ်သက်ပြီး ယုံကြည်ချက်ရှိတယ်။</em></li>
+                            <li><strong>13. He is sad about the news.</strong> <em>— သူ သတင်းအတွက် ဝမ်းနည်းနေတယ်။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern4: {
+                title: "🎯 Speaking Pattern - 4",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Don't + inf + about it</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: တစ်ခုခုကို မလုပ်ရန် တားမြစ်ခြင်း</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>1. Don't worry about it.</strong> <em>— အဲ့ဒါအတွက် စိတ်မပူပါနဲ့။</em></li>
+                            <li><strong>2. Don't think about it.</strong> <em>— အဲ့ဒါကို မစဉ်းစားပါနဲ့။</em></li>
+                            <li><strong>3. Don't talk about it.</strong> <em>— အဲ့ဒါအကြောင်း မပြောပါနဲ့။</em></li>
+                            <li><strong>4. Don't worry about him.</strong> <em>— သူ့အတွက် စိတ်မပူပါနဲ့။</em></li>
+                            <li><strong>5. Don't forget about the meeting.</strong> <em>— အစည်းအဝေးအကြောင်းကို မမေ့ပါနဲ့။</em></li>
+                            <li><strong>6. Don't joke about the safety rules.</strong> <em>— ဘေးကင်းလုံခြုံရေး စည်းကမ်းချက်တွေအပေါ် နောက်ပြောင်ခြင်းမပြုပါနဲ့။</em></li>
+                            <li><strong>7. Don't think about going home.</strong> <em>— အိမ်ပြန်ဖို့အကြောင်း မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>8. Don't ask about it.</strong> <em>— အဲ့ဒီအကြောင်း မမေးပါနဲ့။</em></li>
+                            <li><strong>9. Don't enquire about his salary.</strong> <em>— သူ့ရဲ့ လစာအကြောင်းကို စုံစမ်းမေးမြန်းခြင်း မပြုပါနဲ့။</em></li>
+                            <li><strong>10. Don't repeat about the mistake.</strong> <em>— အမှားအကြောင်းကို ထပ်မပြောပါနဲ့တော့။</em></li>
+                            <li><strong>11. Don't write about the incident.</strong> <em>— ဖြစ်ပွားခဲ့တဲ့ အဖြစ်အပျက်အကြောင်းကို မရေးပါနဲ့။</em></li>
+                            <li><strong>12. Don't dream about the past.</strong> <em>— အတိတ်အကြောင်းတွေကို အိမ်မက်မက်မနေပါနဲ့ (မတွေးတောနေပါနဲ့)။</em></li>
+                            <li><strong>13. Don't complain about the food.</strong> <em>— အစားအသောက်နဲ့ ပတ်သက်ပြီး အပြစ်မပြောပါနဲ့ (မညည်းတွားပါနဲ့)။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern5: {
+                title: "🎯 Speaking Pattern - 5",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Say something about + noun</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: တစ်ခုခုအကြောင်း ပြောပြပါဦး</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>1. Say something about your family.</strong> <em>— မင်းရဲ့ မိသားစုအကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>2. Say something about your future plans.</strong> <em>— မင်းရဲ့ အနာဂတ်အစီအစဉ်တွေအကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>3. Say something about Myanmar culture.</strong> <em>— မြန်မာ့ယဉ်ကျေးမှုအကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>4. Say something about it.</strong> <em>— အဲ့ဒီအကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>5. Say something about the trip.</strong> <em>— ခရီးစဉ်အကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>6. Say something about the problem.</strong> <em>— ပြဿနာအကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>7. Say something about your job.</strong> <em>— မင်းရဲ့ အလုပ်အကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>8. Say something about your hope.</strong> <em>— မင်းရဲ့ မျှော်လင့်ချက်အကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>9. Say something about your business.</strong> <em>— မင်းရဲ့ လုပ်ငန်းအကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>10. Say something about yourself.</strong> <em>— မင်းအကြောင်းမင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>11. Say something about the task.</strong> <em>— လုပ်ငန်းတာဝန်အကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>12. Say something about the plan.</strong> <em>— အစီအစဉ်အကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                            <li><strong>13. Say something about your life.</strong> <em>— မင်းရဲ့ ဘဝအကြောင်း တစ်ခုခုပြောပြပါဦး။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern6: {
+                title: "🎯 Speaking Pattern - 6",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Don't think about + Ving</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: (တစ်ခုခု) လုပ်ဖို့ မစဉ်းစားပါနဲ့ဦး</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>1. Don't think about borrowing money.</strong> <em>— ပိုက်ဆံချေးဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>2. Don't think about what happened yesterday.</strong> <em>— မနေ့က ဖြစ်ခဲ့တာတွေကို မစဉ်းစားပါနဲ့တော့။</em></li>
+                            <li><strong>3. Don't think about making mistakes in the past.</strong> <em>— အတိတ်က အမှားလုပ်ခဲ့တာတွေကို မစဉ်းစားပါနဲ့။</em></li>
+                            <li><strong>4. Don't think about returning yet.</strong> <em>— မပြန်ဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>5. Don't think about selling the car.</strong> <em>— ကားရောင်းဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>6. Don't think about quitting your job.</strong> <em>— အလုပ်ထွက်ဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>7. Don't think about working abroad right now.</strong> <em>— အခုလောလောဆယ် နိုင်ငံခြားမှာ အလုပ်လုပ်ဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>8. Don't think about joining the army.</strong> <em>— စစ်တပ်ထဲဝင်ဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>9. Don't think about losing weight too fast.</strong> <em>— ဝိတ်အရမ်းအမြန်ချဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>10. Don't think about buying a house.</strong> <em>— အိမ်ဝယ်ဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>11. Don't think about getting divorced.</strong> <em>— ကွာရှင်းဖို့ မစဉ်းစားပါနဲ့ဦး။</em></li>
+                            <li><strong>12. Don't think about living in the past.</strong> <em>— အတိတ်မှာပဲ ရှင်သန်နေဖို့ မစဉ်းစားပါနဲ့။</em></li>
+                            <li><strong>13. Don't think about having an operation too much.</strong> <em>— ခွဲစိတ်မှုခံယူရမှာကို အရမ်းကြီး မတွေးပူနေပါနဲ့။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern7: {
+                title: "🎯 Speaking Pattern - 7",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Sub + be + supposed to + infinitive</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: လုပ်ရမယ်လို့ ထင်မှတ်ရတယ် / လုပ်ရမယ့်ပုံစံရှိတယ်</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>I am supposed to be at work.</strong> <em>— ငါ အလုပ်မှာရှိရမယ့်ပုံစံပဲ။</em></li>
+                            <li><strong>She is supposed to call me.</strong> <em>— သူမ ငါ့ကိုဖုန်းဆက်ရမှာလေ။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern8: {
+                title: "🎯 Speaking Pattern - 8",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Sub + be + used to + gerund (Ving)</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: တစ်ခုခုလုပ်တာကို ကျင့်သားရနေပြီ</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>I am used to waking up early.</strong> <em>— ငါ စောစောထတာ ကျင့်သားရနေပြီ။</em></li>
+                            <li><strong>She is used to working hard.</strong> <em>— သူမ အလုပ်ကြိုးစားတာ ကျင့်သားရနေပြီ။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern9: {
+                title: "🎯 Speaking Pattern - 9",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Sub+ keep + gerund (Ving)</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: တစ်ခုခုကို ဆက်တိုက်လုပ်နေတယ် / မရပ်ဘဲလုပ်တယ်</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>He keeps talking.</strong> <em>— သူ ဆက်ပြီးစကားပြောနေတယ်။</em></li>
+                            <li><strong>Keep trying!</strong> <em>— ဆက်ကြိုးစားနေပါ။</em></li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern10: {
+                title: "🎯 Speaking Pattern - 10",
+                content: `
+                    <div class="example-box">
+                        <strong>📌 Sub + feel like + gerund (Ving)</strong>
+                        <p style="margin-top: 15px; font-size: 1.2rem;">အဓိပ္ပာယ်: တစ်ခုခုလုပ်ချင်စိတ်ပေါက်တယ်</p>
+                    </div>
+                    <div class="tense-card">
+                        <h4>📝 Examples / ဥပမာများ</h4>
+                        <ul class="vocab-list" style="list-style: none; padding: 0;">
+                            <li><strong>I feel like eating pizza.</strong> <em>— ငါ ပီဇာစားချင်စိတ်ပေါက်တယ်။</em></li>
+                            <li><strong>Do you feel like going out?</strong> <em>— မင်း အပြင်ထွက်ချင်စိတ်ရှိလား။</em></li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        // ---------- Page Order ----------
+        const pageOrder = [
+            'pattern1', 'pattern2', 'pattern3', 'pattern4', 'pattern5',
+            'pattern6', 'pattern7', 'pattern8', 'pattern9', 'pattern10'
+        ];
+
+        // ---------- State Management ----------
+        let currentPage = null;
+        let lastMenuLevel = 'speakingPattern';
+
+        // ---------- Main Functions ----------
+        function showSpeakingPatternButtons() {
+            const contentArea = document.getElementById('contentArea');
+            const navigationArea = document.getElementById('navigationArea');
+            
+            // Hide main button
+            const mainBtn = document.querySelector('.btn-speaking-main');
+            if (mainBtn) mainBtn.style.display = 'none';
+            
+            // Show pattern grid
+            contentArea.classList.add('loading');
+            setTimeout(() => {
+                contentArea.innerHTML = `
+                    <h2>🎯 Speaking Patterns 1-10</h2>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <p style="font-size: 1.1rem; color: #0077b6;">အောက်ပါ Pattern များကို နှိပ်၍ လေ့လာပါ</p>
+                    </div>
+                    <div class="pattern-grid">
+                        <button class="btn-pattern" onclick="navigateTo('pattern1')">Pattern 1</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern2')">Pattern 2</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern3')">Pattern 3</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern4')">Pattern 4</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern5')">Pattern 5</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern6')">Pattern 6</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern7')">Pattern 7</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern8')">Pattern 8</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern9')">Pattern 9</button>
+                        <button class="btn-pattern" onclick="navigateTo('pattern10')">Pattern 10</button>
+                    </div>
+                `;
+                contentArea.classList.remove('loading');
+                
+                // Set navigation
+                navigationArea.innerHTML = `
+                    <div class="nav-buttons">
+                        <button class="btn-back" onclick="goBackToMain()">🏠 Back to Main</button>
+                    </div>
+                `;
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 250);
+        }
+
+        function navigateTo(patternKey) {
+            currentPage = patternKey;
+            renderPage(patternKey);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderPage(patternKey) {
+            const contentArea = document.getElementById('contentArea');
+            const navigationArea = document.getElementById('navigationArea');
+            const page = speakingPatternsData[patternKey];
+            
+            if (!page) return;
+
+            contentArea.classList.add('loading');
+            setTimeout(() => {
+                contentArea.innerHTML = `<h2>${page.title}</h2>${page.content}`;
+                contentArea.classList.remove('loading');
+
+                const currentIdx = pageOrder.indexOf(patternKey);
+                const prevKey = currentIdx > 0 ? pageOrder[currentIdx - 1] : null;
+                const nextKey = currentIdx < pageOrder.length - 1 ? pageOrder[currentIdx + 1] : null;
+
+                let navHtml = '<div class="nav-buttons">';
+
+                // Previous and Next buttons
+                if (prevKey) {
+                    navHtml += `<button class="btn-back" onclick="navigateTo('${prevKey}')">← Previous</button>`;
+                }
+                if (nextKey) {
+                    navHtml += `<button class="btn-back" onclick="navigateTo('${nextKey}')">Next →</button>`;
+                }
+
+                navHtml += '</div>';
+
+                // Back to Pattern Menu and Main Menu buttons
+                navHtml += `
+                    <div class="back-controls">
+                        <button class="btn-back" onclick="showSpeakingPatternButtons()">🔙 Back to Patterns</button>
+                        <button class="btn-back" onclick="goBackToMain()">🏠 Main Menu</button>
+                    </div>
+                `;
+
+                navigationArea.innerHTML = navHtml;
+            }, 250);
+        }
+
+        function goBackToMain() {
+            const contentArea = document.getElementById('contentArea');
+            const navigationArea = document.getElementById('navigationArea');
+            const mainBtn = document.querySelector('.btn-speaking-main');
+            
+            // Show main button
+            if (mainBtn) mainBtn.style.display = 'block';
+            
+            // Clear content and show welcome message
+            contentArea.innerHTML = `
+                <div class="welcome-box">
+                    <h3 style="color: #0077b6;">Welcome to Speaking Patterns!</h3>
+                    <p style="font-size: 1.1rem; margin: 20px 0;">Click the button above to view all speaking patterns.</p>
+                    <p style="font-size: 0.95rem; color: #666;">Pattern 1 to 10 - အင်္ဂလိပ်စကားပြောပုံစံများ</p>
+                </div>
+            `;
+            navigationArea.innerHTML = '';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ---------- Initial Setup ----------
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentArea = document.getElementById('contentArea');
+            
+            // Show welcome message
+            contentArea.innerHTML = `
+                <div class="welcome-box">
+                    <h3 style="color: #0077b6;">🗣️ Speaking Patterns 1-10</h3>
+                    <p style="font-size: 1.1rem; margin: 20px 0;">အင်္ဂလိပ်စကားပြောပုံစံများကို လေ့လာရန် အောက်ပါခလုတ်ကို နှိပ်ပါ။</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;">
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 1</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 2</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 3</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 4</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 5</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 6</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 7</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 8</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 9</span>
+                        <span style="background: #00b4d8; color: white; padding: 8px 15px; border-radius: 30px;">Pattern 10</span>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
